@@ -3,6 +3,7 @@ public class arrayStack<E> implements Stack<E>{
     private int size = 0;
     private E[] data;
     private int top = -1; 
+
     public arrayStack(){
         this(CAPACITY);
     }
@@ -16,11 +17,7 @@ public class arrayStack<E> implements Stack<E>{
 
     public void push(E e)throws IllegalStateException{
         if(size == data.length){throw new IllegalStateException("Stack is full");}
-        for(int i=0; i <=size; i++){
-            if(data[i] == null){
-                data[i] = e;
-            }
-        }
+        data[++top] = e;
         size++;
     }
 
@@ -32,7 +29,7 @@ public class arrayStack<E> implements Stack<E>{
     public E pop(){
         if(isEmpty()){return null;}
         E popped = data[top];
-        data[top] = null;
+        data[top--] = null;
         size--;
         return popped;
     }
