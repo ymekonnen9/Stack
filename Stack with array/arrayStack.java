@@ -33,4 +33,14 @@ public class arrayStack<E> implements Stack<E>{
         size--;
         return popped;
     }
+
+    public void reverse(E[] data){
+        Stack<E> buffer = new arrayStack<>(data.length);
+        for(int i=0; i<data.length;i++){
+            buffer.push(data[i]);
+        }
+        for(int i=0;i<data.length;i++){
+            buffer.pop();
+        }
+    }
 }
